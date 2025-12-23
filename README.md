@@ -128,26 +128,32 @@ Traditional game engines like Unreal and Unity abstract away the underlying comp
 
 ### Starting the Application
 
-When you launch `ClayPOT.exe`, you'll see the **Main Menu**:
+When you launch `ClayPOT.exe`, you'll see the **Engine Editor**:
 
 ![Engine Startup](./Steps/1.PNG)
 
+This screen shows success!
 
 ### File Menu Options
 
 Click the **File** button in the menu to access the following options:
+1. Open
+2. New
+3. Save
 
 ![File Menu Dropdown](./Steps/2.PNG)
 
 ### Creating New Map
 
-When you launch `ClayPOT.exe`, you'll see the **Main Menu**:
+Slecting the new option, there is a pre-built map in the project exe and src_code you can load it by putting this location : Resources/Map/map, for now i will teach you how to create your own map for game.
+After clicking new you will see this holder, enter the world bounds and tile size.
 
 ![Engine Startup](./Steps/3.PNG)
 
 
 ### Filled attributes
-Click the **File** button in the menu to access the following options:
+I have filled the world size with 100 tiles in width and 100 tiles in height, and with 64 x 64 pixel size of tile.
+64 x 64 is the only supported pixel size for current development on later updates the tile size would be dynamic!.
 
 ![File Menu Dropdown](./Steps/4.PNG)
 
