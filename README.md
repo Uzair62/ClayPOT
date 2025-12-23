@@ -208,7 +208,7 @@ ClayPOT/
 │
 ├── README.md                      # This file
 └── LICENSE                        # Project license
-
+```
 ---
 
 **## 🎮 Example: Creating a Simple Level**
