@@ -1,7 +1,7 @@
 # 🏺 ClayPOT: RPG Maker Game Engine Prototype
 > A custom-built C++ game engine prototype designed for modular RPG development.
 
-![Engine Preview](./Combined_Project/preview.png)
+![Engine Preview](./Combined_Project/src_code/ClayPOT/Resources/logos/logo.png)
 
 ## 🌟 Overview
 ClayPOT is a lightweight game engine prototype developed to explore the fundamentals of game architecture, rendering pipelines, and RPG mechanics. It serves as a foundation for building grid-based role-playing games.
