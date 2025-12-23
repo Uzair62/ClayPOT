@@ -130,32 +130,32 @@ Traditional game engines like Unreal and Unity abstract away the underlying comp
 
 When you launch `ClayPOT.exe`, you'll see the **Main Menu**:
 
-![Engine Startup](./Steps/1.png)
+![Engine Startup](./Steps/1.PNG)
 
 
 ### File Menu Options
 
 Click the **File** button in the menu to access the following options:
 
-![File Menu Dropdown](./Steps/2.png)
+![File Menu Dropdown](./Steps/2.PNG)
 
 ### Creating New Map
 
 When you launch `ClayPOT.exe`, you'll see the **Main Menu**:
 
-![Engine Startup](./Steps/3.png)
+![Engine Startup](./Steps/3.PNG)
 
 
 ### Filled attributes
 Click the **File** button in the menu to access the following options:
 
-![File Menu Dropdown](./Steps/4.png)
+![File Menu Dropdown](./Steps/4.PNG)
 
 ### Map had been set
 
 When you launch `ClayPOT.exe`, you'll see the **Main Menu**:
 
-![Engine Startup](./Steps/5.png)
+![Engine Startup](./Steps/5.PNG)
 
 
 #### Editor Mode
@@ -169,7 +169,7 @@ When you launch `ClayPOT.exe`, you'll see the **Main Menu**:
 
 Click the **File** button in the menu to access the following options:
 
-![File Menu Dropdown](./Steps/6.png)
+![File Menu Dropdown](./Steps/6.PNG)
 
 
 #### Available Options:
