@@ -211,8 +211,7 @@ ClayPOT/
 
 ---
 
-
-## 🎮 Example: Creating a Simple Level
+**## 🎮 Example: Creating a Simple Level**
 
 1. **Open Level Editor**
    - Click File → Level Editor from the main menu
