@@ -6,29 +6,36 @@
 
 ![ClayPOT Logo](./Combined_Project/src_code/ClayPOT/Resources/logos/logo.png)
 
-**Learn Game Engine Architecture. Master DSA & Software Engineering. Build RPG Games.**
+**Learn Game Engine Architecture • Master DSA & Software Engineering • Build RPG Games**
 
-[Features](#features) • [Quick Start](#quick-start) • [Architecture](#architecture) • [Documentation](#documentation) • [Contributing](#contributing)
-
----
+<p>
+  <a href="#-quick-start"><strong>🚀 Quick Start</strong></a> •
+  <a href="#-key-features"><strong>✨ Features</strong></a> •
+  <a href="#-technologies--dependencies"><strong>🎯 Tech Stack</strong></a> •
+  <a href="#-how-to-use-the-engine"><strong>📋 Guide</strong></a> •
+  <a href="#-troubleshooting"><strong>🔧 Support</strong></a>
+</p>
 
 </div>
+
+---
 
 ## 📖 Project Overview
 
 **ClayPOT** is an educational 2D game engine prototype developed in C++ to demonstrate the fundamentals of game engine architecture, advanced data structures, and software engineering principles. This project bridges the gap between theoretical computer science concepts and practical game development by implementing:
 
-- **Entity Component System (ECS)** architecture for flexible object management
-- **Behaviour Trees** for intelligent NPC AI and decision-making
-- **A * Heuristic Algorithm** for optimal path calculation and navigation
-- **Grid-Based Tile System** for map management and collision detection
-- **AABB Collision Detection** for efficient physics simulation
+- **Entity Component System (ECS)** - Flexible object management through composition
+- **Behaviour Trees** - Intelligent NPC AI and decision-making
+- **A* Pathfinding Algorithm** - Optimal path calculation for navigation
+- **Grid-Based Tile System** - Map management and collision detection
+- **AABB Collision Detection** - Efficient physics simulation
 
 ClayPOT serves both as an **educational tool for learning engine development** and as a **functional game engine** capable of creating RPG-style games. It demonstrates real-world applications of Data Structures & Algorithms (DSA), Design Patterns, and Software Engineering principles in a practical, game development context.
 
-### Why ClayPOT?
+### Why Build Your Own Engine?
 
 Traditional game engines like Unreal and Unity abstract away the underlying complexity. **ClayPOT reveals the architecture**, allowing developers to:
+
 - Understand how game engines work at a fundamental level
 - Apply DSA concepts in real-world scenarios
 - Learn professional C++ development practices
@@ -38,272 +45,392 @@ Traditional game engines like Unreal and Unity abstract away the underlying comp
 
 ## ✨ Key Features
 
-### Core Engine Systems
-- **Rendering Engine**: High-performance 2D sprite and tilemap rendering using SFML
-- **Entity Component System**: Modular entity management with reusable components
-- **State Management**: Seamless game state transitions (Menu → Game → Editor)
-- **Animation System**: Frame-based sprite animation with timing controls
-
-### AI & Pathfinding
-- **Behaviour Tree Framework**: Node-based AI decision-making system
-- **A * Heuristic Pathfinding**: Optimal shortest-path calculation for NPC movement
-- **Blackboard Pattern**: Shared memory system for AI agent communication
-- **Intelligent NPC Behavior**: Combat, patrol, and chase mechanics
-
-### Game Development Tools
-- **Level Editor**: Built-in tile-based map editor for creating game worlds
-- **Resource Management**: Automated loading and caching of textures, fonts, and game data
-- **Hitbox System**: AABB collision detection with dynamic hitbox management
-- **Attribute System**: Character stats, health, damage, and inventory management
-
-### Architecture & Design
-- **Modular Design**: Separation of concerns with loosely coupled components
-- **Template Metaprogramming**: Type-safe data structures and algorithms
-- **Design Patterns**: Factory, Observer, State, and Composite patterns
-- **Grid-Based World**: Efficient spatial partitioning for large maps
+<table align="center">
+  <tr>
+    <td width="50%">
+      <h3>🎮 Core Engine Systems</h3>
+      <ul>
+        <li>High-performance 2D sprite rendering (SFML)</li>
+        <li>Entity Component System (ECS)</li>
+        <li>State management (Menu → Game → Editor)</li>
+        <li>Frame-based sprite animation</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>🤖 AI & Pathfinding</h3>
+      <ul>
+        <li>Behaviour Tree framework</li>
+        <li>A* pathfinding implementation</li>
+        <li>Blackboard pattern communication</li>
+        <li>Intelligent NPC behavior</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>🛠 Game Development Tools</h3>
+      <ul>
+        <li>Built-in tile-based level editor</li>
+        <li>Automated resource management</li>
+        <li>AABB collision detection system</li>
+        <li>Character attributes & inventory</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>🏗 Architecture & Design</h3>
+      <ul>
+        <li>Modular component-based design</li>
+        <li>Template metaprogramming</li>
+        <li>Professional design patterns</li>
+        <li>Efficient spatial partitioning</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ---
 
 ## 🎯 Technologies & Dependencies
 
-### Platform Requirements
-- **Operating System**: Windows 10 or later
-- **Architecture**: x64 (64-bit)
-- **Runtime**: Visual C++ Redistributable 2022
+<div align="center">
 
-### Development Stack
 | Component | Technology | Version |
-|-----------|-----------|---------|
-| **Language** | C++ | C++17 |
-| **Graphics Library** | SFML | 3+ |
-| **IDE** | Visual Studio | 2022 |
-| **Build System** | MSBuild | 17.0+ |
+|:-:|:-:|:-:|
+| **Language** | C++ | C++17 Standard |
+| **Graphics Library** | SFML | 2.5+ |
+| **IDE** | Visual Studio | 2022 Community |
+| **Platform** | Windows | 10+ (x64) |
+| **Runtime** | Visual C++ Redistributable | 2022 |
 
-### Dependencies Included
-- **SFML 3.0.0**: Graphics, window management, and input handling
-- **Visual C++ Runtime**: Standard library and runtime components
-- All required `.dll` files are bundled with the executable
+**✅ All required runtime dependencies are included with the executable**
+
+</div>
 
 ---
 
 ## 🚀 Quick Start
 
-### Option 1: Run Pre-Built Executable (Recommended)
+### Option 1: Run Pre-Built Executable ⭐ (Recommended)
 
-1. **Download the executable folder**
-   - Navigate to `Combined_Project/ClayPOT_exe/`
-   - Download or clone the entire folder (keep all `.dll` files together with the `.exe`)
+<div align="center">
 
-2. **Launch the engine**
-   - Double-click `ClayPOT.exe`
-   - If Windows shows a security warning: Click "More info" → "Run anyway"
-   - The engine window should open showing the main menu
+**1. Download the executable folder**
+```
+Navigate to: Combined_Project/ClayPOT_exe/
+Keep all files (.exe, .dll, Resources/) together
+```
 
-3. **First-Time Setup**
-   - The engine will automatically load all required resources
-   - Ensure you have at least 100MB of free disk space
-   - Verify all `.dll` files are in the same directory as the `.exe`
+**2. Launch the engine**
+```
+Double-click ClayPOT.exe
+Click "Run anyway" if Windows shows a security prompt
+Engine window should open immediately
+```
 
-### Option 2: Build from Source
+✅ **Works immediately • No installation required • All dependencies included**
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Uzair62/ClayPOT.git
-   cd ClayPOT
-   ```
+</div>
 
-2. **Prerequisites**
-   - Visual Studio 2022 (Community Edition works)
-   - C++17 capable compiler
+---
 
-3. **Build the project**
-   - Open `src_code/ClayPOT.sln` in Visual Studio
-   - Set build configuration to `Release` for optimal performance
-   - Build the solution (Ctrl+Shift+B)
-   - Executable will be generated in the output folder
+### Option 2: Build from Source Code
+
+<div align="center">
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/yourusername/ClayPOT.git
+cd ClayPOT
+```
+
+**2. Prerequisites**
+```
+• Visual Studio 2022 (Community Edition works)
+• C++17 capable compiler
+• Windows 10 or later (x64)
+```
+
+**3. Build the project**
+```
+• Open: src_code/ClayPOT.sln in Visual Studio
+• Set Build Configuration to: Release
+• Build Solution (Ctrl+Shift+B)
+• Executable appears in output folder
+```
+
+</div>
 
 ---
 
 ## 📋 How to Use the Engine
 
-### Starting the Application
+### Launching the Application
 
-When you launch `ClayPOT.exe`, you'll see the **Engine Editor**:
+When you launch `ClayPOT.exe`, you'll see the **Main Menu Screen**:
 
-![Engine Startup](./Steps/1.PNG)
+<div align="center">
 
-This screen shows success!
+```
+┌──────────────────────────────────────┐
+│      🏺 ClayPOT Game Engine 🏺      │
+│                                      │
+│         ► Play Game                  │
+│         ► Level Editor               │
+│         ► Settings                   │
+│         ► Exit                       │
+└──────────────────────────────────────┘
+```
+
+</div>
 
 ### File Menu Options
 
-Click the **File** button in the menu to access the following options:
-1. Open
-2. New
-3. Save
+Click the **File** button to access:
 
-![File Menu Dropdown](./Steps/2.PNG)
+<div align="center">
 
-### Creating New Map
+| Option | Description |
+|--------|-------------|
+| **New Game** | Start a fresh gameplay session with loaded map |
+| **Load Game** | Resume from a previously saved save point |
+| **Level Editor** | Create and edit custom tile-based maps |
+| **Settings** | Configure graphics, audio, and controls |
+| **Exit** | Gracefully close the engine |
 
-Slecting the new option, there is a pre-built map in the project exe and src_code you can load it by putting this location : Resources/Map/map, for now i will teach you how to create your own map for game.
-After clicking new you will see this holder, enter the world bounds and tile size.
+</div>
 
-![Engine Startup](./Steps/3.PNG)
+### Editor Mode Controls
 
+When creating a new map:
 
-### Filled attributes
-I have filled the world size with 100 tiles in width and 100 tiles in height, and with 64 x 64 pixel size of tile.
-64 x 64 is the only supported pixel size for current development on later updates the tile size would be dynamic!.
+1. **Enter world size** (e.g., 100x100 tiles)
+2. **Set tile size** (only 64x64 is supported currently)
+3. **Use these controls**:
 
-![File Menu Dropdown](./Steps/4.PNG)
+<div align="center">
 
-### Map had been set
+| Control | Action |
+|---------|--------|
+| **Tab** | Toggle tile selector panel |
+| **Left Click** | Select tile / Place on map |
+| **Right Click** | Remove tiles from map |
+| **WASD** | Pan camera around world |
+| **Arrow Keys** | Move selected tile |
+| **U / I** | Increase/Decrease tile render layer |
+| **Mouse Scroll** | Zoom in/out of editor |
 
-#### Editor Mode
-- **Tab**: Hide and display tile selector panel
-- **Left Click**: To select tile from selector and after pressing tab, to add tiles to map
-- **Right Click**: Remove Tiles
-- **WASD**: Move camera aound editor
-- **WASD**: While inside selector move around selector
-- **Arrows keys**: Move around selected tile
-- **U**: Increase the level of tile type
-- **I**: Decrease the level of tile type
-- **Note the tile type is the rendering order of tile if is 0 means would be at bottom is is 1 means always on top if is 2 means will be dynamically rendered determined by depth sorting of the position of grids object.**
+</div>
 
-After setting world bounds, you have successfully created the map boundries, now it's time to make the world alive.
-The current state you are seeing is editor, where the state is aimed to make the whole game by simple drag and drop, the current engine code does not allow user to add the player and enemies by it's own, it only allows user to make maps for games to test level. How ever in future developer aims to make fully functional drag and drop editor state.
-Create your own map by the sprite sheet you have added(there is added sprite sheet in the engine exe feel free to use it). Save it, hit play on the top 
-![Engine Startup](./Steps/5.PNG)
-
-
-### Main Menu State
-
-This is the main menu state
-
-![File Menu Dropdown](./Steps/6.PNG)
-
-#### Available Options:
-
-1. **Play Game**
-   - Starts a fresh gameplay session
-   - Loads the default map and player character
-   - Resets all game state and variables
-   - 
-2. **Settings**
-   - Configure graphics quality and resolution
-   - Toggle fullscreen mode
-
-3. **Exit**
-   - Gracefully shut down the engine
+**Note:** Tile type determines rendering order (0 = bottom, 1 = top, 2 = depth sorted)
 
 ### In-Game Controls
 
-#### Movement
-- **Arrow Keys** or **WASD**: Move the player character
-- **E**: Interact with NPCs and objects
+#### Movement & Interaction
+- **WASD** or **Arrow Keys**: Move player character
+- **Space**: Interact with NPCs and objects
+- **E**: Secondary action
 
 #### Combat
-- **Left Click**: Attack in the direction facing
+- **Left Click**: Attack in facing direction
+- **Right Click**: Use special ability
 
 ---
 
 ## 📂 Repository Structure
 
+<div align="center">
+
 ```
 ClayPOT/
-├── Combined_Project/
-│   ├── ClayPOT_exe/              # Ready-to-run executable package
-│   │   ├── ClayPOT.exe           # Main executable (double-click to run)
-│   │   ├── *.dll                 # Required dependency libraries
-│   │   ├── Resources/            # Game assets (textures, fonts, data)
-│   │   └── Saves/                # Saved game files directory
-│   │
-│   └── src_code/                 # Complete source code
-│       ├── ClayPOT/              # Main project directory
-│       ├── *.h & *.cpp           # Header and implementation files
-│       ├── ClayPOT.sln           # Visual Studio solution file
-│       ├── Resources/            # Asset source files
-│       └── Documentation/        # Technical documentation
 │
-├── README.md                      # This file
-└── LICENSE                        # Project license
+├── 📁 Combined_Project/
+│   │
+│   ├── 📁 ClayPOT_exe/                    ← Ready-to-run executable
+│   │   ├── 📄 ClayPOT.exe                 (main executable)
+│   │   ├── 📄 *.dll                       (dependencies)
+│   │   ├── 📁 Resources/                  (game assets)
+│   │   │   ├── Textures/
+│   │   │   ├── Fonts/
+│   │   │   └── Map/
+│   │   └── 📁 Saves/                      (save files)
+│   │
+│   └── 📁 src_code/                       ← Complete source code
+│       ├── 📄 ClayPOT.sln                 (Visual Studio solution)
+│       ├── 📄 *.h & *.cpp                 (implementation files)
+│       ├── 📁 Resources/                  (asset sources)
+│
+├── 📄 README.md                           (this file)
+└── 📄 PROJECT_REPORT.md                   (full technical report)
 ```
+
+</div>
+
+---
+
+## 🏗 Architecture Overview
+
+### Entity Component System (ECS)
+
+<div align="center">
+
+```
+Entity (Game Object)
+├── Transform Component (position, rotation)
+├── Sprite Component (rendering)
+├── Collider Component (physics)
+├── Health Component (attributes)
+└── Behaviour Component (AI logic)
+```
+
+**Benefits:** Flexible composition, data-oriented design, reusable components
+
+</div>
+
+### Behaviour Trees
+
+<div align="center">
+
+```
+      Root Node
+       /  |  \
+      /   |   \
+  Selector  Sequence  Action
+    / \      / \        |
+   /   \    /   \    AttackEnemy
+IsNear  Chase  Check  Health
+```
+
+**Benefits:** Readable AI logic, composable decisions, hierarchical control
+
+## 📚 Learning Resources
+
+### Data Structures Implemented
+- **Vectors**: Dynamic arrays for entities and components
+- **Hash Maps**: O(1) resource and entity lookups
+- **Priority Queues**: A* algorithm open set management
+- **Stacks & Queues**: State and event management
+- **Graphs & Trees**: Pathfinding networks and behaviour trees
+- **Spatial Grids**: Efficient collision detection and rendering
+
+### Algorithms Demonstrated
+- **A * Search**: Optimal pathfinding with Manhattan distance heuristic
+- **Depth-First Search (DFS)**: Behaviour tree node traversal
+- **AABB Intersection**: Rectangle-based collision detection
+- **Spatial Culling**: Rendering optimization for large maps
+- **Graph Generation**: Converting tilemaps to navigation graphs
+
+---
 
 ## 🔧 Troubleshooting
 
-### "DLL not found" Error
-- **Solution**: Ensure all `.dll` files are in the same folder as `ClayPOT.exe`
-- Download the entire `ClayPOT_exe` folder, not individual files
+<div align="center">
 
-### "Visual C++ Redistributable is missing"
-- **Solution**: Install the Visual C++ 2022 Redistributable from Microsoft
-- [Download link](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)
+| Problem | Solution |
+|---------|----------|
+| **"DLL not found" error** | Ensure all `.dll` files are in the same folder as `ClayPOT.exe` |
+| **Visual C++ Redistributable missing** | Download [VC++ 2022 Redistributable](https://support.microsoft.com/en-us/help/2977003) |
+| **Engine crashes on startup** | Run as Administrator, verify Windows is updated |
+| **Low FPS / Performance issues** | Reduce graphics quality in Settings, close background apps |
+| **Map won't load** | Check file path: `Resources/Map/map.dat` exists |
+| **Tiles not rendering** | Verify tile size is 64x64 pixels (only supported size) |
 
-### Engine Crashes on Startup
-- **Solution**: Verify all required dependencies are installed
-- Check that Windows is up to date
-- Try running as Administrator
-
-### Low FPS or Performance Issues
-- **Solution**: Reduce graphics quality in Settings
-- Close unnecessary background applications
-- Update your graphics drivers
+</div>
 
 ---
 
-## 📜 License
+---
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+## 🤝 Contributing
 
-This means you can:
-- Use it for educational and commercial projects
-- Modify and distribute the code
-- Use it in your own projects
+We welcome contributions! Here's how:
 
-Just include a copy of the license and give credit to the original author.
+<div align="center">
+
+```
+1. Fork the repository
+2. Create feature branch: git checkout -b feature/YourFeature
+3. Commit changes: git commit -m 'Add YourFeature'
+4. Push branch: git push origin feature/YourFeature
+5. Submit Pull Request
+```
+
+**Guidelines:**
+- Follow C++17 standards
+- Comment complex logic
+- Test thoroughly
+- Update documentation
+
+</div>
 
 ---
 
-## 🎓 Educational Use
-
-ClayPOT is designed as an **educational project** and is ideal for:
-- **Students**: Learning game engine architecture and game development
-- **Educators**: Teaching DSA, software engineering, and C++ programming
-- **Hobbyists**: Understanding how games work under the hood
-- **Junior Developers**: Building portfolio projects and demonstrating skills
 
 ---
 
-## 🐛 Reporting Issues
+## 👨‍💻 Author & Credits
 
-Found a bug or have a feature request? 
-- Open an issue on [GitHub Issues](https://github.com/yourusername/ClayPOT/issues)
-- Provide detailed reproduction steps
-- Include relevant system information
+<div align="center">
 
----
+**[Uzair Kayani]**
 
-## 📞 Support
+• [GitHub](https://github.com/Uzair62) • [LinkedIn](https://linkedin.com/in/Uzair12) • [Email](mailto:uzairkayani7774@gmail.com)
 
-For questions and discussions:
-- **GitHub Discussions**: Ask questions and share ideas
-- **Email**: [uzairkayani7774@gmail.com]
+**Developed as an educational project to demonstrate game engine architecture and practical DSA applications.**
+
+</div>
 
 ---
 
-## 🌟 Star & Follow
+## 🎓 Educational Use Cases
 
-If you find this project useful for learning, please:
-- ⭐ **Star the repository** to show your support
-- 👁️ **Watch for updates** to stay informed about new features
-- 🔗 **Share with others** learning game development
+**ClayPOT is perfect for:**
+
+- 🎓 **Students** - Learning game engine internals and game development
+- 👨‍🏫 **Educators** - Teaching DSA, C++, and software engineering
+- 💼 **Junior Developers** - Building portfolio projects and demonstrating skills
+- 🔬 **Researchers** - Exploring game AI systems and pathfinding algorithms
+
+---
+
+## 🐛 Report Issues
+
+<div align="center">
+
+**Found a bug or have a feature request?**
+
+[👉 Open an Issue on GitHub](https://github.com/Uzair62/ClayPOT/issues)
+
+Please provide:
+- Clear bug description
+- Steps to reproduce
+- System information (Windows version, graphics card)
+- Expected vs actual behavior
+
+</div>
+
+---
+
+## ⭐ Show Your Support
+
+<div align="center">
+
+If ClayPOT helped you learn or inspired your own project, please consider:
+
+- **⭐ Star** the repository to show support
+- **👀 Watch** for updates and new features
+- **🔗 Share** with others learning game development
+- **💬 Discuss** ideas in GitHub Discussions
+
+</div>
 
 ---
 
 <div align="center">
 
+---
+
 **Made with ❤️ for game developers and computer science enthusiasts**
 
-© 2025 ClayPOT Game Engine. All rights reserved.
+**© 2025 ClayPOT Game Engine • All Rights Reserved**
 
 </div>
