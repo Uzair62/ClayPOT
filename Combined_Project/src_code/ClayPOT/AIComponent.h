@@ -30,10 +30,10 @@ public:
 	//We are declaring the explicit constructor which it to explicity define the owner of that compenent that forces user to define the any kind of 
 	//Owner
 	explicit AIComponent(Entity* owner);
-	virtual ~AIComponent();
+	virtual ~AIComponent() noexcept;
 
 	//Normal getters and setter:
-	AIBlackBoard* getBlackboard() { return blackBoard.get(); }
+	AIBlackBoard* getBlackboard() const { return blackBoard.get(); }
 	void setTickRate(float t) { tickRate = t; }
 	void setActive(bool a) { active = a; }
 	Entity* getOwner() const { return owner; }

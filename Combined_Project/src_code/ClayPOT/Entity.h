@@ -32,17 +32,17 @@ protected:
 	sf::Sprite sprite;
 	
 
-	HitboxComponent* hitboxComponent;
-	MovementComponent* movementComponent;
-	AnimationComponent* animationComponent;
-	AttributeComponent* attributeComponent;
-	SkillComponent* skillComponent;
+	std::unique_ptr<HitboxComponent> hitboxComponent;
+	std::unique_ptr<MovementComponent> movementComponent;
+	std::unique_ptr<AnimationComponent> animationComponent;
+	std::unique_ptr<AttributeComponent> attributeComponent;
+	std::unique_ptr<SkillComponent> skillComponent;
 	
 
 public:
 	//Constructors and Destructors
 	Entity(sf::Texture& texture);
-	virtual ~Entity();
+	virtual ~Entity() noexcept; // Ensures proper destruction of derived classes
 
 	//Components funs:
 	void createMovementComponent(const float maxSpeed, const float acceleration, const float deceleration);
@@ -50,6 +50,13 @@ public:
 	void createHitboxComponent(float x_pos, float y_pos, int width, int height);
 	void createAttributeComponent(const unsigned level);
 	void createSkillComponent();
+
+	// Accessors for components (if needed)
+	HitboxComponent* getHitboxComponent() const { return hitboxComponent.get(); }
+	MovementComponent* getMovementComponent() const { return movementComponent.get(); }
+	AnimationComponent* getAnimationComponent() const { return animationComponent.get(); }
+	AttributeComponent* getAttributeComponent() const { return attributeComponent.get(); }
+	SkillComponent* getSkillComponent() const { return skillComponent.get(); }
 
 	//Accessors
 	const sf::Vector2f& getPosition()const;

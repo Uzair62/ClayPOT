@@ -3,10 +3,11 @@
 
 void Entity::initVariables()
 {
-
 	this->hitboxComponent = nullptr;
 	this->movementComponent = nullptr;
-
+	this->animationComponent = nullptr;
+	this->attributeComponent = nullptr;
+	this->skillComponent = nullptr;
 }
 
 Entity::Entity(sf::Texture& texture) : sprite(texture)
@@ -18,46 +19,34 @@ Entity::Entity(sf::Texture& texture) : sprite(texture)
 
 }
 
-Entity::~Entity()
+Entity::~Entity() noexcept
 {
-
-	delete this->hitboxComponent;
-	delete this->movementComponent;
-	delete this->animationComponent;
-	delete this->attributeComponent;
-	delete this->skillComponent;
-
+	// Smart pointers automatically clean up resources.
 }
 
 void Entity::createMovementComponent(const float maxSpeed, const float acceleration, const float deceleration)
 {
-
-	this->movementComponent = new MovementComponent(this->sprite, maxSpeed, acceleration, deceleration);
-
+	this->movementComponent = std::make_unique<MovementComponent>(this->sprite, maxSpeed, acceleration, deceleration);
 }
 
 void Entity::createAnimationComponent(sf::Texture& texture_sheet)
 {
-
-	animationComponent = new AnimationComponent(this->sprite, texture_sheet);
-
+	this->animationComponent = std::make_unique<AnimationComponent>(this->sprite, texture_sheet);
 }
 
 void Entity::createHitboxComponent(float x_pos, float y_pos, int width, int height)
 {
-
-	this->hitboxComponent = new HitboxComponent(this->sprite, x_pos, y_pos, width, height);
-
+	this->hitboxComponent = std::make_unique<HitboxComponent>(this->sprite, x_pos, y_pos, width, height);
 }
 
 void Entity::createAttributeComponent(const unsigned level)
 {
-	this->attributeComponent = new AttributeComponent(level);
+	this->attributeComponent = std::make_unique<AttributeComponent>(level);
 }
 
 void Entity::createSkillComponent()
 {
-	this->skillComponent = new SkillComponent();
+	this->skillComponent = std::make_unique<SkillComponent>();
 }
 
 const sf::Vector2f& Entity::getPosition() const
@@ -82,10 +71,12 @@ const sf::FloatRect Entity::getGloabalBounds() const
 
 const sf::FloatRect& Entity::getNextPositionBounds(const float& dt) const
 {
+	static sf::FloatRect dummy;
 	if (this->hitboxComponent && this->movementComponent) {
-		return this->hitboxComponent->getNextPosition(this->movementComponent->getVelocity() * dt);
+		dummy = this->hitboxComponent->getNextPosition(this->movementComponent->getVelocity() * dt);
+		return dummy;
 	}
-	return sf::FloatRect();
+	return dummy;
 }
 
 const int Entity::getIndex(sf::Vector2i pos)
@@ -96,21 +87,18 @@ const int Entity::getIndex(sf::Vector2i pos)
 
 const int Entity::getNodeIndex(const int gridSizeI /*= 64*/)
 {
-
 	sf::Vector2i gridPos;
 	if (this->hitboxComponent)
 		gridPos = sf::Vector2i(
 			static_cast<int>(this->hitboxComponent->getPosition().x) / gridSizeI,
 			static_cast<int>(this->hitboxComponent->getPosition().y) / gridSizeI
 		);
-
 	else {
 		gridPos = sf::Vector2i(
 			static_cast<int>(this->sprite.getPosition().x) / gridSizeI,
 			static_cast<int>(this->sprite.getPosition().y) / gridSizeI
 		);
 	}
-	
 	return this->getIndex(gridPos);
 }
 
@@ -148,13 +136,15 @@ const int Entity::getId()
 
 void Entity::setPositionX(float x)
 {
-	this->hitboxComponent->setPositionX(x);
+	if (this->hitboxComponent)
+		this->hitboxComponent->setPositionX(x);
 	this->sprite.setPosition({ x - 17.f , this->sprite.getPosition().y });
 }
 
 void Entity::setPositionY(float y)
 {
-	this->hitboxComponent->setPositionY(y);
+	if (this->hitboxComponent)
+		this->hitboxComponent->setPositionY(y);
 	this->sprite.setPosition({ this->sprite.getPosition().x, y - 55.f});
 }
 
@@ -177,26 +167,29 @@ void Entity::setSize(float width, float height)
 
 void Entity::setVelocity()
 {
-	this->movementComponent->setVelocity();
+	if (this->movementComponent)
+		this->movementComponent->setVelocity();
 }
 
 void Entity::setVelocityX()
 {
-	this->movementComponent->setVelocityX();
+	if (this->movementComponent)
+		this->movementComponent->setVelocityX();
 }
 
 void Entity::setVelocityY()
 {
-	this->movementComponent->setVelocityY();
+	if (this->movementComponent)
+		this->movementComponent->setVelocityY();
 }
 
 void Entity::move(const float& dt, float dir_x, float dir_y)
 {
-	if(this->movementComponent){
+	if (this->movementComponent) {
 		this->movementComponent->move(dir_x, dir_y, dt);
 	}
 	if (this->attributeComponent) {
-		
+		// Possibly update attribute logic here
 	}
 	if (this->skillComponent) {
 		this->skillComponent->gainExp(SKILLS::MELEE_COMBAT, 1);
@@ -206,26 +199,26 @@ void Entity::move(const float& dt, float dir_x, float dir_y)
 
 void Entity::updateAnimations(const float& dt)
 {
-
-	if (this->attack) {
-		this->attack = this->animationComponent->play("ATTACK", dt);
+	if (this->animationComponent) {
+		if (this->attack) {
+			this->attack = this->animationComponent->play("ATTACK", dt);
+		}
+		if (this->movementComponent && this->movementComponent->getState(IDLE)) {
+			this->animationComponent->play("IDLE", dt);
+		}
+		else if (this->movementComponent && this->movementComponent->getState(MOVING_LEFT)) {
+			this->animationComponent->play("WALK_LEFT", dt, this->movementComponent->getVelocity().x, this->movementComponent->getMaxVelocity());
+		}
+		else if (this->movementComponent && this->movementComponent->getState(MOVING_RIGHT)) {
+			this->animationComponent->play("WALK_RIGHT", dt, this->movementComponent->getVelocity().x, this->movementComponent->getMaxVelocity());
+		}
+		else if (this->movementComponent && this->movementComponent->getState(MOVING_UP)) {
+			this->animationComponent->play("WALK_UP", dt, this->movementComponent->getVelocity().x, this->movementComponent->getMaxVelocity());
+		}
+		else if (this->movementComponent && this->movementComponent->getState(MOVING_DOWN)) {
+			this->animationComponent->play("WALK_DOWN", dt, this->movementComponent->getVelocity().x, this->movementComponent->getMaxVelocity());
+		}
 	}
-	if (this->movementComponent->getState(IDLE)) {
-		this->animationComponent->play("IDLE", dt);
-	}
-	else if (this->movementComponent->getState(MOVING_LEFT)) {
-		this->animationComponent->play("WALK_LEFT", dt, this->movementComponent->getVelocity().x, this->movementComponent->getMaxVelocity());
-	}
-	else if (this->movementComponent->getState(MOVING_RIGHT)) {
-		this->animationComponent->play("WALK_RIGHT", dt, this->movementComponent->getVelocity().x, this->movementComponent->getMaxVelocity());
-	}
-	else if (this->movementComponent->getState(MOVING_UP)) {
-		this->animationComponent->play("WALK_UP", dt, this->movementComponent->getVelocity().x, this->movementComponent->getMaxVelocity());
-	}
-	else if (this->movementComponent->getState(MOVING_DOWN)) {
-		this->animationComponent->play("WALK_DOWN", dt, this->movementComponent->getVelocity().x, this->movementComponent->getMaxVelocity());
-	}
-
 }
 
 

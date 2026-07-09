@@ -8,7 +8,7 @@ AIComponent::AIComponent(Entity* owner) : owner(owner), blackBoard(std::make_uni
 	}
 }
 
-AIComponent::~AIComponent()
+AIComponent::~AIComponent() noexcept
 {
 	//No need for manual memory management smart pointer will do it automatically
 }
@@ -32,9 +32,13 @@ void AIComponent::update(const float& dt)
 	}
 	tickAccumulator = 0.f;
 
-
-	if (behaviourTree) {
-		this->behaviourTree->tick(tickRate);
+	try {
+		if (behaviourTree) {
+			this->behaviourTree->tick(tickRate);
+		}
+	} catch (const std::exception& e) {
+		std::cerr << "[AIComponent] Exception in update: " << e.what() << std::endl;
+	} catch (...) {
+		std::cerr << "[AIComponent] Unknown exception in update." << std::endl;
 	}
-
 }

@@ -52,7 +52,7 @@ Player::~Player()
 
 AttributeComponent* Player::getAttributeComponent()
 {
-	return this->attributeComponent;
+	return this->attributeComponent.get();
 }
 
 
